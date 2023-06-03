@@ -19,6 +19,10 @@ def start_timer():  # Control how the timings change after you click the start b
     global reps
     reps += 1  # counts how many times the timer has been reset, increases by 1 after the timer goes to 0
 
+    # work_sec = 5
+    # short_break_sec = 5
+    # long_break_sec = 5
+
     # converts minutes into seconds
     work_sec = WORK_MIN * 60
     short_break_sec = SHORT_BREAK_MIN * 60
@@ -51,6 +55,9 @@ def count_down(count):  # controls how the program counts down
         timer = window.after(1000, count_down, count - 1)  # after one second the time counts down
     else:
         start_timer()
+        window.deiconify()
+        window.attributes('-topmost', 1)
+        window.attributes('-topmost', 0)
         if reps % 2 == 0:  # after every work block, a checkmark gets added
             new_text = checkmark_text.get()
             new_text += "✔"
